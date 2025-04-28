@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Interview Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>AI Interview Practice</h1>
+      </header>
+
+      <main>
+        <div id="upload-section" class="upload-section">
+          <h2>Upload Job Details</h2>
+          <form id="upload-form" enctype="multipart/form-data">
+            <div class="file-upload">
+              <input type="file" id="job-file" name="document" accept=".pdf,.doc,.docx" required />
+              <label for="job-file">Choose Job Description File</label>
+            </div>
+            <div id="file-status" class="file-status">
+              <span id="selected-file-name">No file selected</span>
+              <span id="upload-status" class="status-text">Upload Status: Not uploaded</span>
+            </div>
+            <button type="submit" id="upload-button">Upload and Start</button>
+          </form>
+        </div>
+
+        <div id="question-section" class="hidden">
+          <div class="action-buttons">
+            <button id="back-button"><i class="fas fa-arrow-left"></i> Upload New Job</button>
+            <button id="toggle-details" class="details-button"><i class="fas fa-info-circle"></i> Show Job Details</button>
+          </div>
+
+          <div id="job-details-container" class="collapsible hidden">
+            <div class="job-details-content">
+              <h3>Job Details</h3>
+              <div id="job-details"></div>
+            </div>
+          </div>
+
+          <h2>Current Question</h2>
+          <div id="current-question"></div>
+          <div id="error-container" class="hidden">
+            <p id="error-message"></p>
+            <button id="retry-button"><i class="fas fa-sync"></i> Retry</button>
+          </div>
+          <textarea id="answer-input" placeholder="Type your answer here..." class="answer-input"></textarea>
+          <div id="multiple-choice-container" class="multiple-choice-container hidden">
+            <div class="options-container">
+              <div class="options-list"></div>
+            </div>
+          </div>
+          <button id="submit-answer">Submit Answer</button>
+        </div>
+
+        <div id="feedback-section" class="hidden">
+          <h2>Feedback</h2>
+          <div id="evaluation-result"></div>
+          <button id="next-question">Next Question</button>
+        </div>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
